@@ -30,8 +30,7 @@ namespace AppEssentialsPM02
             //var tomarfoto = await CrossMedia.Current.TakePhotoAsync(new Plugin.Media.Abstractions.StoreCameraMediaOptions());
             var tomarfoto = await CrossMedia.Current.TakeVideoAsync(new Plugin.Media.Abstractions.StoreVideoOptions
             {
-                Directory = "MyApp",
-                Name = "Prueba.mp4"
+                Directory = "MyApp"
             });
 
             await DisplayAlert("Ubicacion Archivo", tomarfoto.Path, "Ok");
@@ -59,8 +58,6 @@ namespace AppEssentialsPM02
             #region desastres de carlos
 
 
-            //string ruta = Convert.ToString(ImageSource.FromStream(() => { return tomarfoto.GetStream(); }));
-
             var lugar = new pictures
             {
                 ImageRoute = path2,
@@ -68,25 +65,9 @@ namespace AppEssentialsPM02
                 Desc = Video_Desc
 
             };
-
-            using (SQLiteConnection conexion = new SQLiteConnection(App.UbicacionDB))
-            {
-                conexion.CreateTable<pictures>();
-                conexion.Insert(lugar);
-
-            }
-
-
-
+            App.InstanciaBD.InsertPicture(lugar);
             #endregion
 
-
-            await DisplayAlert("Ubicacion Archivo", path2, "Ok");
-
-            if (tomarfoto != null)
-            {
-                foto.Source = ImageSource.FromStream(() => { return tomarfoto.GetStream(); });
-            }
 
 
 

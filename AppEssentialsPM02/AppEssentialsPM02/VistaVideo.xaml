@@ -1,6 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
-             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" xmlns:forms="clr-namespace:MediaManager.Forms;assembly=MediaManager.Forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+             xmlns:forms="clr-namespace:MediaManager.Forms;assembly=MediaManager.Forms"
              x:Class="AppEssentialsPM02.VistaVideo">
     <ContentPage.Content>
         <StackLayout>
@@ -23,7 +24,7 @@
                 <forms:VideoView x:Name="MyVideoView"
                          WidthRequest="500"
                          HeightRequest="400" 
-                         Source="{Binding ImageRoute}" AutoPlay="True" Repeat="All"/>
+                         Source="{Binding ImageRoute}" AutoPlay="True" Repeat="Off"/>
 
 
                 <!--ruta-->
@@ -31,8 +32,8 @@
                        IsVisible="false"
                        x:Name="ruta"/>
 
-                <Button Text="Play" Clicked="BtnPlayVideo_Clicked" BackgroundColor="Silver" TextColor="White"/>
-                <Button Text="Stop" Clicked="BtnStopVideo_Clicked" BackgroundColor="Silver" TextColor="White"/>
+                <Button x:Name="BtnPlay" Text="Play"  ImageSource="pause.ico" Clicked="BtnPlayVideo_Clicked" BackgroundColor="Silver" TextColor="White"/>
+                <Button x:Name="BtnStop" Text="Stop"  ImageSource="stop.ico" Clicked="BtnStopVideo_Clicked" BackgroundColor="Silver" TextColor="White"/>
 
 
 

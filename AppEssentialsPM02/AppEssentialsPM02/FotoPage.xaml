@@ -3,10 +3,36 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="AppEssentialsPM02.FotoPage">
     <ContentPage.Content>
-        <StackLayout>
-            <Image x:Name="foto"/>
-            <Button x:Name="toma" Clicked="toma_Clicked" Text="Tomar Video"/>
-            <Button x:Name="Ver_Lista" Clicked="Ver_Lista_Clicked" Text="Ver Lista De Videos"/>
+        <StackLayout Padding="50">
+            <Image x:Name="foto" Source="video.png" WidthRequest="200"/>
+            <Grid>
+                <Button x:Name="toma" 
+                    Clicked="toma_Clicked" 
+                    Text="Tomar Video"
+                    Grid.Row="1" 
+                    Grid.Column="0"
+                    CornerRadius="10"
+                    BackgroundColor="CornflowerBlue"
+                    IsVisible="true"
+                    HorizontalOptions="CenterAndExpand"
+                    Margin="20,10,20,0" 
+                    TextColor="Black"
+                    FontSize="20" 
+                    FontFamily="AppleNegrita" HeightRequest="60" WidthRequest="200"/>
+                <Button x:Name="Ver_Lista" 
+                    Clicked="Ver_Lista_Clicked" 
+                    Text="Lista De Videos"
+                    Grid.Row="2" 
+                    Grid.Column="0"
+                    CornerRadius="10"
+                    BackgroundColor="CornflowerBlue"
+                    IsVisible="true"
+                    HorizontalOptions="CenterAndExpand"
+                    Margin="20,10,20,0" 
+                    TextColor="Black"
+                    FontSize="20" 
+                    FontFamily="AppleNegrita" HeightRequest="60" WidthRequest="200"/>
+            </Grid>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

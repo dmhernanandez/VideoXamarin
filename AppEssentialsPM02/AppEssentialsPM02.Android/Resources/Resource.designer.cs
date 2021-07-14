@@ -19491,19 +19491,31 @@ namespace AppEssentialsPM02.Droid
 			public const int notify_panel_notification_icon_bg = 2131165387;
 			
 			// aapt resource value: 0x7F0700CC
-			public const int test_custom_background = 2131165388;
+			public const int pause = 2131165388;
 			
 			// aapt resource value: 0x7F0700CD
-			public const int tooltip_frame_dark = 2131165389;
+			public const int play = 2131165389;
 			
 			// aapt resource value: 0x7F0700CE
-			public const int tooltip_frame_light = 2131165390;
+			public const int stop = 2131165390;
 			
 			// aapt resource value: 0x7F0700CF
-			public const int VectorBasurero = 2131165391;
+			public const int test_custom_background = 2131165391;
 			
 			// aapt resource value: 0x7F0700D0
-			public const int VectorReproducir = 2131165392;
+			public const int tooltip_frame_dark = 2131165392;
+			
+			// aapt resource value: 0x7F0700D1
+			public const int tooltip_frame_light = 2131165393;
+			
+			// aapt resource value: 0x7F0700D2
+			public const int VectorBasurero = 2131165394;
+			
+			// aapt resource value: 0x7F0700D3
+			public const int VectorReproducir = 2131165395;
+			
+			// aapt resource value: 0x7F0700D4
+			public const int video = 2131165396;
 			
 			static Drawable()
 			{

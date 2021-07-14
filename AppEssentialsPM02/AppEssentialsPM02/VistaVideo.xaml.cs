@@ -24,11 +24,13 @@ namespace AppEssentialsPM02
             if (CrossMediaManager.Current.IsPlaying())
             {
                 BtnPlay.ImageSource = "play.ico";
+                BtnPlay.Text = "Play";
                 CrossMediaManager.Current.Pause();
 
             }
             else
             {
+                BtnPlay.Text = "Pause";
                 BtnPlay.ImageSource = "pause.ico";
                 CrossMediaManager.Current.Play();
             }
@@ -41,6 +43,7 @@ namespace AppEssentialsPM02
         }
         protected override bool OnBackButtonPressed()
         {
+            ;
             DisplayAlert("hoa", "hey", "hola");
             return base.OnBackButtonPressed();
 

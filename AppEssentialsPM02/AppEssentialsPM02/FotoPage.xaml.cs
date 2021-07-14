@@ -41,7 +41,7 @@ namespace AppEssentialsPM02
 
             while (Video_Nombre == null || Video_Nombre == "")
             {
-                Video_Nombre = await DisplayPromptAsync("", "Por Favor, añada un nombre al video");
+                Video_Nombre = await DisplayPromptAsync("", "Por Favor añada un nombre al video");
             }
 
             String path2 = "/storage/emulated/0/Android/data/com.companyname.appessentialspm02/files/Movies/MyApp/" + Video_Nombre + ".mp4";
@@ -52,7 +52,7 @@ namespace AppEssentialsPM02
 
             while (Video_Desc == null || Video_Desc == "")
             {
-                Video_Desc = await DisplayPromptAsync("", "Por Favor, añada una descripción al video");
+                Video_Desc = await DisplayPromptAsync("", "Por Favor añada una descripcion al video");
             }
 
             #region desastres de carlos
@@ -65,7 +65,7 @@ namespace AppEssentialsPM02
                 Desc = Video_Desc
 
             };
-            App.InstanciaBD.InsertPicture(lugar);
+            App.InstanciaBD.InsertPicture(lugar).Wait();
             #endregion
 
 

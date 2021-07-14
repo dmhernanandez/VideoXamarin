@@ -26,17 +26,11 @@
                          HeightRequest="400" 
                          Source="{Binding ImageRoute}" AutoPlay="True" Repeat="Off"/>
 
+                <StackLayout Orientation="Horizontal">
 
-                <!--ruta-->
-                <Label Text="{Binding ImageRoute}" 
-                       IsVisible="false"
-                       x:Name="ruta"/>
-
-                <Button x:Name="BtnPlay" Text="Play"  ImageSource="pause.ico" Clicked="BtnPlayVideo_Clicked" BackgroundColor="Silver" TextColor="White"/>
-                <Button x:Name="BtnStop" Text="Stop"  ImageSource="stop.ico" Clicked="BtnStopVideo_Clicked" BackgroundColor="Silver" TextColor="White"/>
-
-
-
+                    <Button x:Name="BtnPlay" Text="Pause"  ImageSource="pause.ico" Clicked="BtnPlayVideo_Clicked"  BackgroundColor="Silver" TextColor="White"/>
+                    <Button x:Name="BtnStop" Text="Stop"  ImageSource="stop.ico" Clicked="BtnStopVideo_Clicked" BackgroundColor="Silver" TextColor="White"/>
+                </StackLayout>
             </StackLayout>
         </StackLayout>
     </ContentPage.Content>

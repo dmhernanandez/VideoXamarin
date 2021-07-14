@@ -13,23 +13,41 @@ namespace AppEssentialsPM02
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class VistaVideo : ContentPage
     {
-        String url = null;
+
         public VistaVideo()
         {
             InitializeComponent();
-            url = ruta.Text;
         }
-
-
 
         void BtnPlayVideo_Clicked(object sender, System.EventArgs e)
         {
-            CrossMediaManager.Current.Play();
+            if (CrossMediaManager.Current.IsPlaying())
+            {
+                BtnPlay.ImageSource = "play.ico";
+                BtnPlay.Text = "Play";
+                CrossMediaManager.Current.Pause();
+
+            }
+            else
+            {
+                BtnPlay.Text = "Pause";
+                BtnPlay.ImageSource = "pause.ico";
+                CrossMediaManager.Current.Play();
+            }
+           
         }
 
         void BtnStopVideo_Clicked(object sender, System.EventArgs e)
         {
             CrossMediaManager.Current.Stop();
         }
+        protected override bool OnBackButtonPressed()
+        {
+            ;
+            DisplayAlert("hoa", "hey", "hola");
+            return base.OnBackButtonPressed();
+
+        }
     }
+   
 }

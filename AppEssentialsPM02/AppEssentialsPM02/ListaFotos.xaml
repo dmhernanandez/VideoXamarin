@@ -9,7 +9,7 @@
 
         <StackLayout>
             <ListView x:Name="ListaFotosBD" 
-                      ItemSelected="ListaFotosBD_ItemSelected" 
+                     
                       RowHeight="100" 
                       BackgroundColor="#000000" 
                       SeparatorColor="#8D66F3"
@@ -18,7 +18,7 @@
                     <DataTemplate>
                         <ViewCell>
                             <Grid Background="#1b1b1b" Padding="20,10,20,10">
-                              
+
                                 <SwipeView>
                                     <SwipeView.LeftItems>
                                         <SwipeItems>
@@ -31,12 +31,14 @@
                                             <SwipeItem Text="Eliminar"
                                                IconImageSource="VectorBasurero.png"
                                                BackgroundColor="#DF5B77"
+                                               Command="{Binding BindingContext.DeleteCommand, Source={x:Reference Name=ListaFotosBD}}"
+                                                 CommandParameter="{Binding .}"  
                                                 />
                                         </SwipeItems>
                                     </SwipeView.LeftItems>
                                     <!-- Content -->
-                                    
-                                    
+
+
 
                                     <StackLayout Orientation="Horizontal">
                                         <Frame BackgroundColor="#3E3161" CornerRadius="10" VerticalOptions="Fill">
@@ -61,25 +63,6 @@
                     </DataTemplate>
                 </ListView.ItemTemplate>
             </ListView>
-
-            <Frame BorderColor="#3E77F3" BackgroundColor="#121212" Margin="-20" CornerRadius="10" >
-                <StackLayout >
-
-                    <StackLayout Orientation="Horizontal" HorizontalOptions="Center" Margin="10,0,10,10">
-                        <Label TextColor="#AEA3FA" Text="Ha seleccionado la foto num.: " FontSize="20"/>
-                        <Label TextColor="#AEA3FA" x:Name="seleccion" FontSize="20" />
-                    </StackLayout>
-
-                    <StackLayout Orientation="Horizontal" HorizontalOptions="Center">
-                        <!--<Button x:Name="btnmod" Text="Modificar Datos" 
-                                                    BackgroundColor="#af95cf" Margin="10,0,10,0" FontSize="15" Clicked="btnmod_Clicked" FontAttributes="Bold" TextColor="#351B58"/>
-
-                        <Button x:Name="btnborrar" Text="Borrar Datos" 
-                                                BackgroundColor="#af95cf" Margin="10,0,10,0" FontSize="15" Clicked="btnborrar_Clicked" FontAttributes="Bold" TextColor="#351B58"/>-->
-                    </StackLayout>
-
-                </StackLayout>
-            </Frame>
 
         </StackLayout>
     </ContentPage.Content>

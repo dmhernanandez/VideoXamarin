@@ -25,6 +25,7 @@ namespace AppEssentialsPM02
         private string ItemDesc;
         public List<pictures> pictures { get; set; }
         public ICommand ReproducirCommand { protected set; get; }
+        public ICommand DeleteCommand { protected set; get; }
 
         public class ImageFileToImageSourceConverter : IValueConverter
         {
@@ -39,95 +40,37 @@ namespace AppEssentialsPM02
                 throw new NotImplementedException();
             }
         }
-        
+
 
         public ListaFotos()
         {
             ReproducirCommand = new Command<pictures>(async (key) =>
             {
-                pictures SelectPictures = key as pictures;
-
-                ItemID = SelectPictures.id;
-                ItemRoute = SelectPictures.ImageRoute;
-                ItemName = SelectPictures.Name;
-                ItemDesc = SelectPictures.Desc;
-
-                String var_id = Convert.ToString(ItemID);
-
-                seleccion.Text = ItemName;
-                Debug.WriteLine("----------------Selecciona los ITEM-------------------");
-                Debug.WriteLine(ItemName);
-
-                var Datos_VerVideo = new pictures
-                {
-                    id = ItemID,
-                    ImageRoute = ItemRoute,
-                    Name = ItemName,
-                    Desc = ItemDesc
-                };
-
+                pictures SelectedPictures = key as pictures;
 
                 var inf = new VistaVideo();
-                Debug.WriteLine("Var Info");
-                inf.BindingContext = Datos_VerVideo;
-                Debug.WriteLine("Ya se Envio el Binding");
+                inf.BindingContext = SelectedPictures;
                 await Navigation.PushAsync(inf);
-                Debug.WriteLine("abre la ventana");
-
                 //await DisplayAlert("info", SelectPictures.id.ToString(), "OK");
             });
-            
-            BindingContext = this;
+
+            DeleteCommand = new Command<pictures>(async (key) =>
+            {
+                pictures SelectPictures = key as pictures;
+                App.InstanciaBD.DeletePicture(SelectPictures);
+            });
+        
+
+        BindingContext = this;
             InitializeComponent();
         }
 
         protected async override void OnAppearing()
         {
             base.OnAppearing();
-
-            SQLiteConnection conexion = new SQLiteConnection(App.UbicacionDB);
-            conexion.CreateTable<pictures>();
-            var listafotos = conexion.Table<pictures>().ToList();
+            var listafotos = await App.InstanciaBD.GetPictures();
             ListaFotosBD.ItemsSource = listafotos;
-            conexion.Close();
 
-
-
-            //new MediaFile(file.Path, () => file.OpenStreamForReadAsync().Result, albumPath: null);
-
-            //pictures pic = new pictures();
-
-            /*carga.Text = pic.ImageRoute;*/
-
-            //fotodb.Source = pic.ImageRoute;
-
-
-        }
-
-        private async void ListaFotosBD_ItemSelected(object sender, SelectedItemChangedEventArgs e)
-        {
-            var almacenar = e.SelectedItem as pictures;
-
-            ItemID = almacenar.id;
-            ItemRoute = almacenar.ImageRoute;
-            ItemName = almacenar.Name;
-            ItemDesc = almacenar.Desc;
-
-            String var_id = Convert.ToString(ItemID);
-
-            seleccion.Text = ItemName;
-
-            var Datos_VerVideo = new pictures
-            {
-                id = ItemID,
-                ImageRoute = ItemRoute,
-                Name = ItemName,
-                Desc = ItemDesc
-            };
-
-            var inf = new VistaVideo();
-            inf.BindingContext = Datos_VerVideo;
-            await Navigation.PushAsync(inf);
 
         }
 

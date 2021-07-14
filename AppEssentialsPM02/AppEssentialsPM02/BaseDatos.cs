@@ -14,6 +14,7 @@ namespace AppEssentialsPM02
             db = new SQLiteAsyncConnection(dbpath);
             //creacion de las tablas de la bd
             db.CreateTableAsync<Sitios>().Wait();
+            db.CreateTableAsync<pictures>().Wait();
         }
 
         //Metodos del CRUD para Sitios
@@ -51,5 +52,32 @@ namespace AppEssentialsPM02
             return db.DeleteAsync(ubicacion);
         }
         #endregion Sitios
+
+        #region Pictures
+        public Task<List<pictures>> GetPictures()
+        {
+            return db.Table<pictures>().ToListAsync();
+        }
+
+        public Task<int> InsertPicture(pictures picture)
+        {
+            if (picture.id != 0)
+            {
+                return db.UpdateAsync(picture);
+            }
+            else
+            {
+                return db.InsertAsync(picture);
+            }
+        }
+        public Task<int> DeletePicture(pictures picture)
+        {
+
+                return db.DeleteAsync(picture);
+          
+        }
+
+        #endregion
     }
+
 }

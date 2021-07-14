@@ -28,14 +28,7 @@ namespace AppEssentialsPM02
             }
         }
 
-        public App(string DBlocal)
-        {
-            InitializeComponent();
-
-            MainPage = new NavigationPage(new FotoPage());
-
-            UbicacionDB = DBlocal;
-        }
+    
 
         protected override void OnStart()
         {

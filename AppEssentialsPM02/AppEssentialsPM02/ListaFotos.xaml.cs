@@ -10,6 +10,8 @@ using SQLite;
 using AppEssentialsPM02;
 using System.Globalization;
 using Plugin.Media.Abstractions;
+using System.Windows.Input;
+using System.Diagnostics;
 
 namespace AppEssentialsPM02
 {
@@ -21,6 +23,8 @@ namespace AppEssentialsPM02
         private string ItemRoute;
         private string ItemName;
         private string ItemDesc;
+        public List<pictures> pictures { get; set; }
+        public ICommand ReproducirCommand { protected set; get; }
 
         public class ImageFileToImageSourceConverter : IValueConverter
         {
@@ -35,11 +39,45 @@ namespace AppEssentialsPM02
                 throw new NotImplementedException();
             }
         }
-
-
+        
 
         public ListaFotos()
         {
+            ReproducirCommand = new Command<pictures>(async (key) =>
+            {
+                pictures SelectPictures = key as pictures;
+
+                ItemID = SelectPictures.id;
+                ItemRoute = SelectPictures.ImageRoute;
+                ItemName = SelectPictures.Name;
+                ItemDesc = SelectPictures.Desc;
+
+                String var_id = Convert.ToString(ItemID);
+
+                seleccion.Text = ItemName;
+                Debug.WriteLine("----------------Selecciona los ITEM-------------------");
+                Debug.WriteLine(ItemName);
+
+                var Datos_VerVideo = new pictures
+                {
+                    id = ItemID,
+                    ImageRoute = ItemRoute,
+                    Name = ItemName,
+                    Desc = ItemDesc
+                };
+
+
+                var inf = new VistaVideo();
+                Debug.WriteLine("Var Info");
+                inf.BindingContext = Datos_VerVideo;
+                Debug.WriteLine("Ya se Envio el Binding");
+                await Navigation.PushAsync(inf);
+                Debug.WriteLine("abre la ventana");
+
+                //await DisplayAlert("info", SelectPictures.id.ToString(), "OK");
+            });
+            
+            BindingContext = this;
             InitializeComponent();
         }
 

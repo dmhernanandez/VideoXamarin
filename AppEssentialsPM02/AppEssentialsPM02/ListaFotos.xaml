@@ -25,7 +25,8 @@
                                             <SwipeItem Text="Reproducir"
                                                IconImageSource="VectorReproducir.png"
                                                BackgroundColor="#5E95D5"
-                                               
+                                                 Command="{Binding BindingContext.ReproducirCommand, Source={x:Reference Name=ListaFotosBD}}"
+                                                 CommandParameter="{Binding .}"
                                                />
                                             <SwipeItem Text="Eliminar"
                                                IconImageSource="VectorBasurero.png"

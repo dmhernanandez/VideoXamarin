@@ -13,6 +13,9 @@ namespace AppEssentialsPM02
 
         public string ImageRoute { get; set; }
 
-        //public string Nombre { get; set; }
+        public string Name { get; set; }
+
+        public string Desc { get; set; }
+
     }
 }

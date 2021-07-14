@@ -8,29 +8,53 @@
     <ContentPage.Content>
 
         <StackLayout>
-            <ListView x:Name="ListaFotosBD" ItemSelected="ListaFotosBD_ItemSelected" RowHeight="350" BackgroundColor="#000000" SeparatorColor="#8D66F3">
+            <ListView x:Name="ListaFotosBD" 
+                      ItemSelected="ListaFotosBD_ItemSelected" 
+                      RowHeight="100" 
+                      BackgroundColor="#000000" 
+                      SeparatorColor="#8D66F3"
+                      HasUnevenRows = "true">
                 <ListView.ItemTemplate>
                     <DataTemplate>
                         <ViewCell>
                             <Grid Background="#1b1b1b" Padding="20,10,20,10">
+                              
+                                <SwipeView>
+                                    <SwipeView.LeftItems>
+                                        <SwipeItems>
+                                            <SwipeItem Text="Reproducir"
+                                               IconImageSource="VectorReproducir.png"
+                                               BackgroundColor="#5E95D5"
+                                               
+                                               />
+                                            <SwipeItem Text="Eliminar"
+                                               IconImageSource="VectorBasurero.png"
+                                               BackgroundColor="#DF5B77"
+                                                />
+                                        </SwipeItems>
+                                    </SwipeView.LeftItems>
+                                    <!-- Content -->
+                                    
+                                    
 
-                                <StackLayout Orientation="Horizontal">
-                                    <Frame BackgroundColor="#3E3161" CornerRadius="10" VerticalOptions="Fill">
+                                    <StackLayout Orientation="Horizontal">
+                                        <Frame BackgroundColor="#3E3161" CornerRadius="10" VerticalOptions="Fill">
+                                            <Label 
+                                               TextColor="Aqua" Text="{Binding id}" IsVisible="true" FontSize="20" VerticalOptions="Center" Padding="0" />
+                                        </Frame>
+
+
                                         <Label 
-                                           TextColor="Aqua" Text="{Binding id}" IsVisible="true" FontSize="50" VerticalOptions="Center" Padding="0" />
-                                    </Frame>
+                                               TextColor="Aqua" Text="{Binding Name}" IsVisible="true" />
+
+                                        <!--<Frame BackgroundColor="#3E3161" CornerRadius="10" VerticalOptions="Fill" Margin="40,0,0,0" BorderColor="#748FAD">
+                                            <Image x:Name="fotodb" Source="{Binding ImageRoute}" HorizontalOptions="End" Margin="0"/>    
+                                        </Frame>-->
 
 
-                                    <Label 
-                                           TextColor="Aqua" Text="{Binding ImageRoute}" IsVisible="true" />
+                                    </StackLayout>
+                                </SwipeView>
 
-                                    <!--<Frame BackgroundColor="#3E3161" CornerRadius="10" VerticalOptions="Fill" Margin="40,0,0,0" BorderColor="#748FAD">
-                                        <Image x:Name="fotodb" Source="{Binding ImageRoute}" HorizontalOptions="End" Margin="0"/>    
-                                    </Frame>-->
-                                    
-
-                                </StackLayout>
-                                    
                             </Grid>
                         </ViewCell>
                     </DataTemplate>
@@ -42,7 +66,7 @@
 
                     <StackLayout Orientation="Horizontal" HorizontalOptions="Center" Margin="10,0,10,10">
                         <Label TextColor="#AEA3FA" Text="Ha seleccionado la foto num.: " FontSize="20"/>
-                        <Label TextColor="#AEA3FA" x:Name="selleccion" FontSize="20" />
+                        <Label TextColor="#AEA3FA" x:Name="seleccion" FontSize="20" />
                     </StackLayout>
 
                     <StackLayout Orientation="Horizontal" HorizontalOptions="Center">

@@ -1,0 +1,42 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" xmlns:forms="clr-namespace:MediaManager.Forms;assembly=MediaManager.Forms"
+             x:Class="AppEssentialsPM02.VistaVideo">
+    <ContentPage.Content>
+        <StackLayout>
+            <StackLayout Margin="10" >
+                <!--Texto del nombre-->
+
+                <Label  Text="{Binding Name}"
+                    Margin="15,10,15,0" 
+                    TextColor="Black"
+                    FontSize="20" 
+                    FontFamily="NewYork"/>
+
+                <!--Texto de la descripcion-->
+                <Label  Text="{Binding Desc}"
+                    Margin="30,0,20,0" 
+                    TextColor="Black"
+                    FontSize="20" 
+                    FontFamily="NewYork"/>
+
+                <forms:VideoView x:Name="MyVideoView"
+                         WidthRequest="500"
+                         HeightRequest="400" 
+                         Source="{Binding ImageRoute}" AutoPlay="True" Repeat="All"/>
+
+
+                <!--ruta-->
+                <Label Text="{Binding ImageRoute}" 
+                       IsVisible="false"
+                       x:Name="ruta"/>
+
+                <Button Text="Play" Clicked="BtnPlayVideo_Clicked" BackgroundColor="Silver" TextColor="White"/>
+                <Button Text="Stop" Clicked="BtnStopVideo_Clicked" BackgroundColor="Silver" TextColor="White"/>
+
+
+
+            </StackLayout>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

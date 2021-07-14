@@ -3,34 +3,45 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="AppEssentialsPM02.FotoPage">
     <ContentPage.Content>
-        <StackLayout Padding="50">
-            <Image x:Name="foto" Source="video.png" WidthRequest="200"/>
-            <Grid>
+        <StackLayout>
+            <Frame BackgroundColor="#2196F3" Padding="0" CornerRadius="0">
+                <Label Text="Captura de Video" 
+                   HorizontalTextAlignment="Center" 
+                   TextColor="White" 
+                   FontFamily="Quattrocento-Bold"
+                   FontSize="40" 
+                   Padding="10"
+                   FontAttributes="Bold"/>
+            </Frame>
+            <Image x:Name="foto" Source="video.png" WidthRequest="200" Margin="0,20,0,0"/>
+            <Grid Padding="-20">
                 <Button x:Name="toma" 
                     Clicked="toma_Clicked" 
                     Text="Tomar Video"
                     Grid.Row="1" 
                     Grid.Column="0"
-                    CornerRadius="10"
+                    CornerRadius="20"
                     BackgroundColor="CornflowerBlue"
                     IsVisible="true"
                     HorizontalOptions="CenterAndExpand"
                     Margin="20,10,20,0" 
                     TextColor="Black"
-                    FontSize="20" 
+                    FontSize="20"
+                    FontAttributes="Bold"
                     FontFamily="AppleNegrita" HeightRequest="60" WidthRequest="200"/>
                 <Button x:Name="Ver_Lista" 
                     Clicked="Ver_Lista_Clicked" 
                     Text="Lista De Videos"
                     Grid.Row="2" 
                     Grid.Column="0"
-                    CornerRadius="10"
+                    CornerRadius="20"
                     BackgroundColor="CornflowerBlue"
                     IsVisible="true"
                     HorizontalOptions="CenterAndExpand"
                     Margin="20,10,20,0" 
                     TextColor="Black"
-                    FontSize="20" 
+                    FontSize="20"
+                    FontAttributes="Bold"
                     FontFamily="AppleNegrita" HeightRequest="60" WidthRequest="200"/>
             </Grid>
         </StackLayout>

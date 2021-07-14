@@ -27,9 +27,27 @@
                          Source="{Binding ImageRoute}" AutoPlay="True" Repeat="Off"/>
 
                 <StackLayout Orientation="Horizontal">
-
-                    <Button x:Name="BtnPlay" Text="Pause"  ImageSource="pause.ico" Clicked="BtnPlayVideo_Clicked"  BackgroundColor="Silver" TextColor="White"/>
-                    <Button x:Name="BtnStop" Text="Stop"  ImageSource="stop.ico" Clicked="BtnStopVideo_Clicked" BackgroundColor="Silver" TextColor="White"/>
+                    <Grid  HorizontalOptions="CenterAndExpand">
+                        <Button x:Name="BtnPlay" 
+                                Text="Pause"  
+                                ImageSource="pause.ico" 
+                                Clicked="BtnPlayVideo_Clicked" 
+                                Grid.Row="0" 
+                                Grid.Column="0"
+                                CornerRadius="15"
+                                BackgroundColor="Silver" 
+                                TextColor="White"/>
+                        <Button x:Name="BtnStop" 
+                                Text="Stop"
+                                ImageSource="stop.ico"
+                                Clicked="BtnStopVideo_Clicked" 
+                                Grid.Row="0" 
+                                Grid.Column="1" 
+                                CornerRadius="15"
+                                BackgroundColor="Silver"    
+                                TextColor="White"/>
+                    </Grid>
+                    
                 </StackLayout>
             </StackLayout>
         </StackLayout>
